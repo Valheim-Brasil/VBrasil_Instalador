@@ -1,0 +1,6 @@
+C:\Users\TheWh\RiderProjects\ValheimBrasil\ValheimBrasil\bin\Debug\ValheimBrasil.exe
+C:\Users\TheWh\RiderProjects\ValheimBrasil\ValheimBrasil\bin\Debug\ValheimBrasil.pdb
+C:\Users\TheWh\RiderProjects\ValheimBrasil\ValheimBrasil\obj\Debug\ValheimBrasil.csprojAssemblyReference.cache
+C:\Users\TheWh\RiderProjects\ValheimBrasil\ValheimBrasil\obj\Debug\ValheimBrasil.csproj.CoreCompileInputs.cache
+C:\Users\TheWh\RiderProjects\ValheimBrasil\ValheimBrasil\obj\Debug\ValheimBrasil.exe
+C:\Users\TheWh\RiderProjects\ValheimBrasil\ValheimBrasil\obj\Debug\ValheimBrasil.pdb
