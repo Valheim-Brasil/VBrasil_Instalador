@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValheimBrasil", "ValheimBrasil\ValheimBrasil.csproj", "{D26735DE-6182-4419-A7D1-267ECC682BE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D26735DE-6182-4419-A7D1-267ECC682BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D26735DE-6182-4419-A7D1-267ECC682BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D26735DE-6182-4419-A7D1-267ECC682BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D26735DE-6182-4419-A7D1-267ECC682BE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
