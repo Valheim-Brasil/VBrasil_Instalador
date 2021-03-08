@@ -5,6 +5,7 @@ using System.Collections;
 using System.Net;
 using System.Runtime.Remoting.Lifetime;
 using System.IO.Compression;
+using System.Runtime.CompilerServices;
 
 namespace ValheimBrasil
 {
@@ -16,7 +17,7 @@ namespace ValheimBrasil
         enum opcao
         {
             ValheimPlus = 1,
-            Extrair,
+            Desinstalar,
         };
 
         public static void Menu()
@@ -32,6 +33,7 @@ namespace ValheimBrasil
             Menu();
             Console.WriteLine("Oque você quer fazer?");
             Console.WriteLine("[1] Instalar ValheimPlus");
+            Console.WriteLine("[2] Desinstalar ValheimPlus");
             Console.Write("> ");
         }
 
@@ -106,14 +108,24 @@ namespace ValheimBrasil
 
         public string EscolhaODiretorio()
         {
-            Menu();
-            Console.WriteLine("Primeiro, escolha qual é o diretório do jogo");
-            Console.WriteLine("Normalmente ele fica em: C:/Program Files (x86)/Steam/steamapps/common/valheim");
-            Console.WriteLine("Precisamos que você escreva o diretório completo, sem erros.");
-            Console.WriteLine("Em qual diretório está o seu jogo?\n");
-            string internodir = Console.ReadLine();
-            ProcurandoDiretorio(internodir);
-            return internodir;
+            try
+            {
+                Menu();
+                Console.WriteLine("Primeiro, escolha qual é o diretório do jogo");
+                Console.WriteLine("Normalmente ele fica em: C:/Program Files (x86)/Steam/steamapps/common/valheim");
+                Console.WriteLine("Precisamos que você escreva o diretório completo, sem erros.");
+                Console.WriteLine("Em qual diretório está o seu jogo?\n");
+                string internodir = Console.ReadLine();
+                ProcurandoDiretorio(internodir);
+                return internodir;
+            }
+            catch (System.Exception)
+            {
+                Console.WriteLine("Diretório inválido...");
+                System.Threading.Thread.Sleep(2000);
+                System.Environment.Exit(0);
+                throw;
+            }
         }
 
         public static void Agradecimentos()
@@ -153,18 +165,48 @@ namespace ValheimBrasil
             switch (opcaoSelecionada)
             {
              case opcao.ValheimPlus:
-                 WebClient webClient = new WebClient();
-                 Console.WriteLine("\nIniciando Descarregamento...");
-                 webClient.DownloadFile("https://github.com/valheimPlus/ValheimPlus/releases/download/0.9.4/WindowsClient.zip", "WindowsClient.zip");
-                 Console.WriteLine("\nArquivo baixado com sucesso!\nExtraindo arquivo para o diretório do jogo...");
-                 ZipFile.ExtractToDirectory("WindowsClient.zip", $"{dir}");
+                 try
+                 {
+                     WebClient webClient = new WebClient();
+                     Console.WriteLine("\nIniciando Descarregamento...");
+                     webClient.DownloadFile("https://github.com/valheimPlus/ValheimPlus/releases/download/0.9.4/WindowsClient.zip", "WindowsClient.zip");
+                     Console.WriteLine("\nArquivo baixado com sucesso!\nExtraindo arquivo para o diretório do jogo...");
+                     ZipFile.ExtractToDirectory("WindowsClient.zip", $"{dir}");
+                 }
+                 catch (System.Exception)
+                 {
+                     Console.WriteLine("O descarregamento e a extração falhou...");
+                     System.Threading.Thread.Sleep(2000);
+                     MenuDeInstalacao();
+                 }
                  System.Threading.Thread.Sleep(2500);
                  File.Delete("WindowsClient.zip");
                  Console.Clear();
                  Agradecimentos();
                  break;
-             case opcao.Extrair:
-                 ZipFile.ExtractToDirectory("WindowsClient.zip", "/");
+             case opcao.Desinstalar:
+                 try
+                 {
+                     string bepinexdir = $"{dir}/BepInEx";
+                     string dorstopdir = $"{dir}/doorstop_libs";
+                     string unstrippeddir = $"{dir}/unstripped_corlib";
+                     DirectoryInfo directorybep = new DirectoryInfo(bepinexdir);
+                     DirectoryInfo directorydorstop = new DirectoryInfo(dorstopdir);
+                     DirectoryInfo directoryunstrip = new DirectoryInfo(unstrippeddir);
+                     directorybep.Delete(true);
+                     directorydorstop.Delete(true);
+                     directoryunstrip.Delete(true);
+                     File.Delete("doorstop_config.ini");
+                     File.Delete("winhttp.dll");
+                     Console.WriteLine("\nDesinstalação concluída com sucesso, obrigado!");
+                     System.Threading.Thread.Sleep(2000);
+                 }
+                 catch (System.Exception)
+                 {
+                     Console.WriteLine("A desinstalação falhou, reiniciando instalador...");
+                     System.Threading.Thread.Sleep(2000);
+                     MenuDeInstalacao();
+                 }
                  break;
             }
         }
