@@ -18,11 +18,13 @@ namespace ValheimBrasil
         {
             ValheimPlus = 1,
             Desinstalar,
+            Atualizar,
         };
 
         public static void Menu()
         {
             Console.WriteLine("========== Valheim Brasil ==========\n");
+            Console.WriteLine("AVISO: O JOGO PRECISA ESTAR DESLIGADO!");
             Console.WriteLine("Seja muito bem vindo ao instalador do BepInEx + ValheimPlus da nossa comunidade de Valheim Brasil");
             Console.WriteLine("Este aplicativo foi feito para instalar os Mods necessários para entrar no servidor de Roleplay\n");
         }
@@ -32,8 +34,9 @@ namespace ValheimBrasil
         {
             Menu();
             Console.WriteLine("Oque você quer fazer?");
-            Console.WriteLine("[1] Instalar ValheimPlus");
-            Console.WriteLine("[2] Desinstalar ValheimPlus");
+            Console.WriteLine("[1] Instalar V+ Brasil Mod");
+            Console.WriteLine("[2] Desinstalar V+ Brasil Mod");
+            Console.WriteLine("[3] Atualizar V+ Brasil Mod");
             Console.Write("> ");
         }
 
@@ -138,22 +141,91 @@ namespace ValheimBrasil
             System.Threading.Thread.Sleep(10000);
         }
         
+        public static void Despedida()
+        {
+            Console.WriteLine("========== Valheim Brasil ==========\n");
+            Console.WriteLine("ValheimPlus foi desinstalado com sucesso! Adeus :(");
+            Console.WriteLine("O instalador irá encerrar em 10 segundos...");
+            Console.WriteLine("Discord: https://discord.gg/BjeTBv6pxe");
+            Console.WriteLine("\nCriado por: CastBlacKing");
+            System.Threading.Thread.Sleep(10000);
+        }
         
+        public static void MsgDeAtualizacao()
+        {
+            Console.WriteLine("========== Valheim Brasil ==========\n");
+            Console.WriteLine("ValheimPlus foi ATUALIZADO com sucesso!");
+            Console.WriteLine("O instalador irá encerrar em 10 segundos...");
+            Console.WriteLine("Discord: https://discord.gg/BjeTBv6pxe");
+            Console.WriteLine("\nCriado por: CastBlacKing");
+            System.Threading.Thread.Sleep(10000);
+        }
+
+        public static void BaixarBrasilMod()
+        {
+            // Baixando o Core
+            try
+            {
+                WebClient webClient = new WebClient();
+                Console.WriteLine("\nIniciando Descarregamento...");
+                webClient.DownloadFile("https://github.com/Valheim-Brasil/VPlus-Brasil/releases/latest/download/ValheimBrasil.zip", "ValheimBrasil.zip");
+                Console.WriteLine("\nArquivo baixado com sucesso!\nExtraindo arquivo para o diretório do jogo...");
+                ZipFile.ExtractToDirectory("ValheimBrasil.zip", $"{Directory.GetCurrentDirectory()}");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("O descarregamento e a extração do core falhou...");
+                System.Threading.Thread.Sleep(2000);
+                System.Environment.Exit(0);
+            }
+            
+            
+            // Limpeza de Desnecessários
+            System.Threading.Thread.Sleep(2500);
+            Console.WriteLine("Deletando arquivo Core .zip");
+            File.Delete("ValheimBrasil.zip");
+            System.Threading.Thread.Sleep(2000);
+            Console.Clear();
+        }
+
+        public static void LimpezaTotal()
+        {
+            try
+            {
+                string bepinexdir = $"{Directory.GetCurrentDirectory()}/BepInEx";
+                string dorstopdir = $"{Directory.GetCurrentDirectory()}/doorstop_libs";
+                string unstrippeddir = $"{Directory.GetCurrentDirectory()}/unstripped_corlib";
+                DirectoryInfo directorybep = new DirectoryInfo(bepinexdir);
+                DirectoryInfo directorydorstop = new DirectoryInfo(dorstopdir);
+                DirectoryInfo directoryunstrip = new DirectoryInfo(unstrippeddir);
+                directorybep.Delete(true);
+                directorydorstop.Delete(true);
+                directoryunstrip.Delete(true);
+                File.Delete("doorstop_config.ini");
+                File.Delete("winhttp.dll");
+                Console.WriteLine("\nDesinstalação concluída com sucesso, obrigado!");
+                System.Threading.Thread.Sleep(2000);
+            }
+            catch (System.Exception)
+            {
+                Console.WriteLine("A desinstalação falhou, reiniciando instalador...");
+                System.Threading.Thread.Sleep(2000);
+                MenuDeInstalacao();
+            }
+        }
+
         //Função principal
         public static void Main(string[] args)
         {
             //Chamando o programa
             Program programa = new Program();
-            string dir = null;
-
             //Tetando o padrão
             if(programa.TestandoDefault())
             {
-                dir = programa.dirgame;
             }
             else
             {
-                dir = programa.EscolhaODiretorio();
+                programa.EscolhaODiretorio();
             }
 
             //Menu de instalação
@@ -165,48 +237,18 @@ namespace ValheimBrasil
             switch (opcaoSelecionada)
             {
              case opcao.ValheimPlus:
-                 try
-                 {
-                     WebClient webClient = new WebClient();
-                     Console.WriteLine("\nIniciando Descarregamento...");
-                     webClient.DownloadFile("https://github.com/valheimPlus/ValheimPlus/releases/download/0.9.4/WindowsClient.zip", "WindowsClient.zip");
-                     Console.WriteLine("\nArquivo baixado com sucesso!\nExtraindo arquivo para o diretório do jogo...");
-                     ZipFile.ExtractToDirectory("WindowsClient.zip", $"{dir}");
-                 }
-                 catch (System.Exception)
-                 {
-                     Console.WriteLine("O descarregamento e a extração falhou...");
-                     System.Threading.Thread.Sleep(2000);
-                     MenuDeInstalacao();
-                 }
-                 System.Threading.Thread.Sleep(2500);
-                 File.Delete("WindowsClient.zip");
-                 Console.Clear();
+                 BaixarBrasilMod();
                  Agradecimentos();
                  break;
              case opcao.Desinstalar:
-                 try
-                 {
-                     string bepinexdir = $"{dir}/BepInEx";
-                     string dorstopdir = $"{dir}/doorstop_libs";
-                     string unstrippeddir = $"{dir}/unstripped_corlib";
-                     DirectoryInfo directorybep = new DirectoryInfo(bepinexdir);
-                     DirectoryInfo directorydorstop = new DirectoryInfo(dorstopdir);
-                     DirectoryInfo directoryunstrip = new DirectoryInfo(unstrippeddir);
-                     directorybep.Delete(true);
-                     directorydorstop.Delete(true);
-                     directoryunstrip.Delete(true);
-                     File.Delete("doorstop_config.ini");
-                     File.Delete("winhttp.dll");
-                     Console.WriteLine("\nDesinstalação concluída com sucesso, obrigado!");
-                     System.Threading.Thread.Sleep(2000);
-                 }
-                 catch (System.Exception)
-                 {
-                     Console.WriteLine("A desinstalação falhou, reiniciando instalador...");
-                     System.Threading.Thread.Sleep(2000);
-                     MenuDeInstalacao();
-                 }
+                 LimpezaTotal();
+                 Despedida();
+                 break;
+             case opcao.Atualizar:
+                 // Atualizando o Brasil Mod
+                 LimpezaTotal();
+                 BaixarBrasilMod();
+                 MsgDeAtualizacao();
                  break;
             }
         }
