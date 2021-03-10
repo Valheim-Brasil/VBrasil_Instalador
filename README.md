@@ -25,3 +25,7 @@ Se seu jogo não está na pasta padrão (C:/Program Files (x86)/Steam/steamapps/
 ValheimPlus: https://github.com/valheimPlus/ValheimPlus
 
 Discord da Comunidade: https://discord.gg/BjeTBv6pxe
+
+### Créditos
+* João P. 'Castiel' Freitas - https://github.com/CastBlacKing - Valheim Brasil
+* Filho do Lopes (O tal do lopes)
