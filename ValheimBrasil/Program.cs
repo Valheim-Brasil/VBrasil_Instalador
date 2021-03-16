@@ -25,7 +25,7 @@ namespace ValheimBrasil
 
         public static void Menu()
         {
-            Console.WriteLine("========== Valheim+ Installer ==========\n");
+            Console.WriteLine("========== Valheim Brasil ==========\n");
             Console.WriteLine("AVISO: O JOGO DEVE SER DESLIGADO!");
             Console.WriteLine("Bem vindo ao instalador do Valheim Brasil");
             Console.WriteLine("Este aplicativo foi projetado para instalar o ValheimPlus, basicamente abre um Cliente Web para baixar o arquivo .zip,\nentão o extrai para a pasta selecionada e apaga o arquivo .zip baixado.");
@@ -284,7 +284,7 @@ namespace ValheimBrasil
                 bool existsbepfolder = System.IO.Directory.Exists($"{dir}/BepInEx");
                 bool existsdorstoplibs = System.IO.Directory.Exists($"{dir}/doorstop_libs");
                 bool existsunstripped = System.IO.Directory.Exists($"{dir}/unstripped_corlib");
-                Console.WriteLine("Removing files...");
+                Console.WriteLine("Removendo Arquivos...");
                 System.Threading.Thread.Sleep(2000);
                 
                 //Deleting Files
