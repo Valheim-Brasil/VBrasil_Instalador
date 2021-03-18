@@ -1,11 +1,8 @@
 ﻿using System;
-using System.ComponentModel;
 using System.IO;
-using System.Collections;
 using System.Net;
-using System.Runtime.Remoting.Lifetime;
 using System.IO.Compression;
-using System.Runtime.CompilerServices;
+using Microsoft.Win32;
 
 namespace ValheimBrasil
 {
@@ -32,7 +29,6 @@ namespace ValheimBrasil
             Console.WriteLine("Esta aplicação é MIT, o código fonte está no repositório: https://github.com/CastBlacKing/ValheimPlus-Installer/\n");
         }
 
-        
         public static void InstallMenu()
         {
             Menu();
@@ -43,26 +39,48 @@ namespace ValheimBrasil
             Console.Write("> ");
         }
 
+        public static string RegistryDefault()
+        {
+            string interdirgame = string.Empty;
+            try
+            {
+                RegistryKey registryKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Steam App 892970");
+                if (registryKey != null)
+                    interdirgame = registryKey.GetValue("InstallLocation").ToString();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return interdirgame;
+        }
+        
+
         public bool TestDefaultDirectory()
         {
+            //Menu
             Menu();
-            Console.WriteLine("Teste do diretório padrão...");
+            //Procurando Diretório Padrão
+            string dirgame = RegistryDefault();
+            programa.dirselected = dirgame;
+
             bool exists = System.IO.Directory.Exists(dirgame);
+
+            Console.WriteLine("Procurando Diretório...");
 
             if (exists)
             {
-                Console.WriteLine("Diretório padrão encontrado! Procurando por Valheim.exe");
+                Console.WriteLine("O diretório foi encontrado! Procurando por Valheim.exe");
                 Directory.SetCurrentDirectory(dirgame);
                 System.Threading.Thread.Sleep(2000);
                 SearchingValheimExe(dirgame);
-                Console.WriteLine("Valheim.exe foi encontrado, continuando...");
-                SearchingBepInExInstall(dirgame);
                 System.Threading.Thread.Sleep(3000);
                 Console.Clear();
             }
             else
             {
-                Console.WriteLine("Diretório padrão não encontrado, continuando...");
+                Console.WriteLine("O diretório não foi encontrado, continuando...");
                 System.Threading.Thread.Sleep(8000);
                 Console.Clear();
             }
@@ -112,7 +130,7 @@ namespace ValheimBrasil
 
         public static void SearchingBepInExInstall(string dir)
         {
-            Console.WriteLine("SearchingBepInEx Dir Recebido: " + dir);
+            //Console.WriteLine("SearchingBepInEx Dir Recebido: " + dir);
             bool existsbepinex = false;
             bool existsdoorstop = System.IO.File.Exists($"{dir}/doorstop_config.ini");
             bool existswinhttp = System.IO.File.Exists($"{dir}/winhttp.dll");
@@ -122,18 +140,18 @@ namespace ValheimBrasil
             
             if (existsdoorstop || existsbepfolder || existsdorstoplibs || existswinhttp || existsunstripped)
             {
-                Console.WriteLine("existsunstripped" + existsunstripped);
-                Console.WriteLine("existswinhttp" + existswinhttp);
-                Console.WriteLine("existsbepfolder" + existsbepfolder);
-                Console.WriteLine("existsdorstoplibs" + existsdorstoplibs);
-                Console.WriteLine("existsunstripped" + existsunstripped);
+                //Console.WriteLine("existsunstripped" + existsunstripped);
+                //Console.WriteLine("existswinhttp" + existswinhttp);
+                //Console.WriteLine("existsbepfolder" + existsbepfolder);
+                //Console.WriteLine("existsdorstoplibs" + existsdorstoplibs);
+                //Console.WriteLine("existsunstripped" + existsunstripped);
                 existsbepinex = true;
             }
 
             if (existsbepinex)
             {
-                Console.WriteLine("\nOs seguintes arquivos/diretórios: BepInEx, doorstop_libs, un stripped_corlib, doorstop_config.ini ou winhttp.dll foram encontrados na pasta selecionada.");
-                Console.WriteLine("Você quer remover as intalações antigas da BepInEx? Tudo será deletado.");
+                Console.WriteLine("\nOs seguintes arquivos/diretórios: BepInEx, doorstop_libs, unstripped_corlib, doorstop_config.ini ou winhttp.dll foram encontrados na pasta selecionada.");
+                Console.WriteLine("Você quer remover esses arquivos? Tudo será deletado.");
                 Console.WriteLine("[1] Sim");
                 Console.WriteLine("[2] Não");
                 Console.Write("> ");
@@ -141,7 +159,7 @@ namespace ValheimBrasil
 
                 if (opcselec == 1)
                 {
-                    Console.WriteLine("Removendo Arquivos...");
+                    Console.WriteLine("\nRemovendo Arquivos...");
                     System.Threading.Thread.Sleep(2000);
                     
                     //Deleting Files
@@ -167,14 +185,14 @@ namespace ValheimBrasil
                         DirectoryInfo directoryunstrip = new DirectoryInfo(unstrippeddir);
                         directoryunstrip.Delete(true);
                     }
-                    Console.WriteLine("\nRemoção de arquivo concluída com sucesso!");
+                    Console.WriteLine("Remoção de arquivo concluída com sucesso!");
                     System.Threading.Thread.Sleep(2000);
                 }
                 else if (opcselec == 2)
                 {
-                    Console.WriteLine("Ok, se você quiser instalar o mod você deve apagar arquivos de instalações anteriores ou selecionar a opção \"Atualizar VBrasil\".");
+                    Console.WriteLine("Ok, se você quiser instalar o mod você deve apagar arquivos de instalações anteriores ou selecionar a opção \"Atualizar Mods\".");
                     System.Threading.Thread.Sleep(8000);
-                    InstallMenu();
+                    System.Environment.Exit(0);
                 }
                 else
                 {
@@ -252,7 +270,6 @@ namespace ValheimBrasil
             // Baixando o Core
             try
             {
-                SearchingBepInExInstall(programa.dirselected);
                 WebClient webClient = new WebClient();
                 Console.WriteLine("\nIniciando o download....");
                 webClient.DownloadFile("https://github.com/Valheim-Brasil/VPlus-Brasil/releases/latest/download/ValheimBrasil.zip", "ValheimBrasil.zip");
@@ -262,7 +279,15 @@ namespace ValheimBrasil
             catch (Exception)
             {
                 Console.WriteLine("O download e a extração do núcleo falharam...");
-                System.Threading.Thread.Sleep(2000);
+                Console.WriteLine("As vezes isto acontece por que o instalador não tem permissão para apagar os arquivos.");
+                Console.WriteLine("Por favor, delete os seguintes arquivos/pastas que estão no diretório do seu jogo:");
+                Console.WriteLine("/doorstop_config.ini");
+                Console.WriteLine("/winhttp.dll");
+                Console.WriteLine("/BepInEx");
+                Console.WriteLine("/doorstop_libs");
+                Console.WriteLine("/unstripped_corlib");
+                Console.WriteLine("Depois de remover eles, por favor, aperte enter para o instalador fechar,\n depois disto abra o instalador e escolha a opção \'instalar\'");
+                System.Threading.Thread.Sleep(10000);
                 System.Environment.Exit(0);
             }
             
@@ -342,21 +367,22 @@ namespace ValheimBrasil
             //Selector
             switch (opcaoSelecionada)
             {
-             case opcao.ValheimPlus:
-                 InstallValheimPlus();
-                 FinishThanks();
-                 break;
-             case opcao.Desinstalar:
-                 FullClean(programa.dirselected);
-                 Console.Clear();
-                 Goodbye();
-                 break;
-             case opcao.Atualizar:
-                 // Atualizando o Brasil Mod
-                 FullClean(programa.dirselected);
-                 InstallValheimPlus();
-                 UpdateMessage();
-                 break;
+                case opcao.ValheimPlus:
+                    SearchingBepInExInstall(programa.dirselected);
+                    InstallValheimPlus();
+                    FinishThanks();
+                    break;
+                case opcao.Desinstalar:
+                    FullClean(programa.dirselected);
+                    Console.Clear();
+                    Goodbye();
+                    break;
+                case opcao.Atualizar:
+                    // Atualizando o Brasil Mod
+                    FullClean(programa.dirselected);
+                    InstallValheimPlus();
+                    UpdateMessage();
+                    break;
             }
         }
 
