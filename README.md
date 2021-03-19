@@ -22,10 +22,9 @@ Se seu jogo não está na pasta padrão (C:/Program Files (x86)/Steam/steamapps/
 2. Seu antivirus ou seu navegador pode acusar o programa como prejudicial ao computador, mas isto é por que eu não coloque uma licença no programa, então o Windows detecta como não licenciado.
 
 ### Links Úteis
-ValheimPlus: https://github.com/valheimPlus/ValheimPlus
+VBrasil: https://github.com/Valheim-Brasil/VBrasil
 
 Discord da Comunidade: https://discord.gg/BjeTBv6pxe
 
 ### Créditos
 * João P. 'Castiel' Freitas - https://github.com/CastBlacKing - Valheim Brasil
-* Filho do Lopes (O tal do lopes)
