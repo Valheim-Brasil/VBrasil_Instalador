@@ -272,7 +272,7 @@ namespace ValheimBrasil
             {
                 WebClient webClient = new WebClient();
                 Console.WriteLine("\nIniciando o download....");
-                webClient.DownloadFile("https://github.com/Valheim-Brasil/VPlus-Brasil/releases/latest/download/ValheimBrasil.zip", "ValheimBrasil.zip");
+                webClient.DownloadFile("https://github.com/Valheim-Brasil/VBrasil/releases/latest/download/ValheimBrasil.zip", "ValheimBrasil.zip");
                 Console.WriteLine("\nArquivo baixado com sucesso! Extraindo arquivo para o diretório do jogo...");
                 ZipFile.ExtractToDirectory("ValheimBrasil.zip", $"{Directory.GetCurrentDirectory()}");
             }
