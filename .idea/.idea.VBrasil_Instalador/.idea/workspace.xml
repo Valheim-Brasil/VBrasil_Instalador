@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="449cfc38-7539-4677-81d6-be126a289c51" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ValheimBrasil/Menus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ValheimBrasil/Util.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.VBrasil_Instalador/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VBrasil_Instalador/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VBrasil_Instalador/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VBrasil_Instalador/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ValheimBrasil/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ValheimBrasil/ValheimBrasil.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/ValheimBrasil.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ValheimBrasil/obj/Debug/ValheimBrasil.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/obj/Debug/ValheimBrasil.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ValheimBrasil/obj/Debug/ValheimBrasil.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/obj/Debug/ValheimBrasil.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ValheimBrasil/obj/Debug/ValheimBrasil.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/obj/Debug/ValheimBrasil.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +28,8 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/ValheimBrasil/Menus.cs" />
+      <option value="$PROJECT_DIR$/ValheimBrasil/Util.cs" />
       <option value="$PROJECT_DIR$/ValheimBrasil/Program.cs" />
     </changedPaths>
   </component>
@@ -29,6 +42,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -61,14 +80,26 @@
       <option name="presentableId" value="Default" />
       <updated>1616118135765</updated>
       <workItem from="1616118137218" duration="668000" />
+      <workItem from="1616170609261" duration="3765000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
