@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.IO.Compression;
 using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace ValheimBrasil
 {
@@ -89,7 +90,7 @@ namespace ValheimBrasil
             {
                 Console.WriteLine("A remoção de arquivos falhou, reiniciando o instalador...");
                 System.Threading.Thread.Sleep(2000);
-                Menus.InstallMenu();
+                Program.MenuInicial();
             }
         }
         
@@ -134,6 +135,32 @@ namespace ValheimBrasil
             {
                 Console.WriteLine("Resposta inválida, por favor, digite uma resposta válida.");
                 UsarOuNao(dirgame);
+            }
+
+            return false;
+        }
+        
+        public static bool ProsseguirOuNao()
+        {
+            string usarounao = Console.ReadLine();
+            
+            if (usarounao.ToLower() == "s")
+            {
+                Console.WriteLine("\nOkay, prosseguindo...");
+                System.Threading.Thread.Sleep(2000);
+                return true;
+            } 
+            else if (usarounao.ToLower() == "n")
+            {
+                Console.WriteLine("\nOkay, voltando...");
+                System.Threading.Thread.Sleep(2000);
+                Console.Clear();
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("Resposta inválida, por favor, digite uma resposta válida.");
+                ProsseguirOuNao();
             }
 
             return false;
@@ -242,12 +269,11 @@ namespace ValheimBrasil
             {
                 Console.WriteLine("\nOs seguintes arquivos/diretórios: BepInEx, doorstop_libs, unstripped_corlib, doorstop_config.ini ou winhttp.dll foram encontrados na pasta selecionada.");
                 Console.WriteLine("Você quer remover esses arquivos? Tudo será deletado.");
-                Console.WriteLine("[1] Sim");
-                Console.WriteLine("[2] Não");
+                Console.WriteLine("[S/N]");
                 Console.Write("> ");
-                int opcselec = int.Parse(Console.ReadLine());
+                string opcselec = Console.ReadLine().ToLower();
 
-                if (opcselec == 1)
+                if (opcselec == "s")
                 {
                     Console.WriteLine("\nRemovendo Arquivos...");
                     System.Threading.Thread.Sleep(2000);
@@ -278,7 +304,7 @@ namespace ValheimBrasil
                     Console.WriteLine("Remoção de arquivo concluída com sucesso!");
                     System.Threading.Thread.Sleep(2000);
                 }
-                else if (opcselec == 2)
+                else if (opcselec == "n")
                 {
                     Console.WriteLine("Ok, se você quiser instalar o mod você deve apagar arquivos de instalações anteriores ou selecionar a opção \"Atualizar Mods\".");
                     System.Threading.Thread.Sleep(8000);
@@ -286,11 +312,9 @@ namespace ValheimBrasil
                 }
                 else
                 {
-                    Console.WriteLine("Opção Inválida");
-                    Console.WriteLine("[1] Sim");
-                    Console.WriteLine("[2] Não");
-                    Console.Write("> ");
-                    opcselec = int.Parse(Console.ReadLine());;
+                    Console.WriteLine("Opção Inválida, reiniciando...");
+                    Console.Clear();
+                    SearchingBepInExInstall(dir);
                 }
                 
                 System.Threading.Thread.Sleep(2000);
@@ -323,6 +347,72 @@ namespace ValheimBrasil
                 System.Environment.Exit(0);
                 throw;
             }
+        }
+
+        public static string CurrentVersion()
+        {
+            try
+            {
+                FileVersionInfo InstalledVBrasilVersionInfo = FileVersionInfo.GetVersionInfo(Util.util.dirselected + "\\BepInEx\\plugins\\VBrasil.dll");
+                return InstalledVBrasilVersionInfo.FileVersion;
+            }
+            catch
+            {
+                Program.newestVersion = "Falha/Inexistente";
+                return Program.newestVersion;
+            }
+        }
+
+        public static string RepositoryVersion()
+        {
+            WebClient client = new WebClient();
+            
+            client.Headers.Add("User-Agent: VBrasil Installer");
+            
+            try
+            {
+                Console.Clear();
+                Console.WriteLine("Aguarde... Obtendo versões.");
+                string reply = client.DownloadString(Program.ApiRepository);
+                Program.newestVersion = reply.Split(new[] { "," }, StringSplitOptions.None)[0].Trim().Replace("\"", "").Replace("[{name:", "");
+                Console.WriteLine("Versão obtida com sucesso.");
+                System.Threading.Thread.Sleep(1500);
+                Console.Clear();
+                return Program.newestVersion;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Console.WriteLine("A mais nova versão não pôde ser determinada.");
+                Program.newestVersion = "Falha/Inexistente";
+                System.Threading.Thread.Sleep(1500);
+                Console.Clear();
+                return Program.newestVersion;
+            }
+        }
+        
+        public static bool IsNewVersionAvailable()
+        {
+            //Parse versions for proper version check
+            if (System.Version.TryParse(Program.verrepo, out System.Version newVersion))
+            {
+                if (System.Version.TryParse(Program.veratual, out System.Version currentVersion))
+                {
+                    if (currentVersion < newVersion)
+                    {
+                        return true;
+                    }
+                }
+            }
+            else //Fallback version check if the version parsing fails
+            {
+                if (Program.verrepo != Program.veratual)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }    

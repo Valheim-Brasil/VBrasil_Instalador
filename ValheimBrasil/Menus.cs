@@ -20,6 +20,7 @@ namespace ValheimBrasil
         public static void InstallMenu()
         {
             Menu();
+            Console.WriteLine($"Versão Instalada: [{Program.veratual}]\nVersão Mais Atual [{Program.verrepo}]\n");
             Console.WriteLine("O que você quer fazer?");
             Console.WriteLine($"[1] Instalar {Program.installname}");
             Console.WriteLine($"[2] Desinstalar {Program.installname}");
