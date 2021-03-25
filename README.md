@@ -8,14 +8,14 @@ Se seu jogo não está na pasta padrão (C:/Program Files (x86)/Steam/steamapps/
 
 # Janela de Interação
 
-### Detecção automática de diretório padrão
-![Detecção automática](https://i.imgur.com/vTGH967.png)
+### Detecção avançada do diretório do jogo
+![Detecção automática](https://i.imgur.com/6XL8P5Y.png)
 
 ### Escolha de diretório e detecção do Valheim.exe
-![Escolha de diretório](https://i.imgur.com/DEOVzdc.png)
+![Escolha de diretório](https://i.imgur.com/cu2SXgd.png)
 
 ### Opções de Instalar/Desinstalar/Atualizar
-![Opções](https://i.imgur.com/5FubDpX.png)
+![Opções](https://i.imgur.com/yBc6MCB.png)
 
 
 1. Vá até [Releases](https://github.com/Valheim-Brasil/InstaladorVPlus/releases), baixe a ultima versão do instalador e execute-a.
