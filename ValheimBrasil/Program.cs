@@ -7,6 +7,9 @@ using Microsoft.Win32;
 
 namespace ValheimBrasil
 {
+    // COPYRIGHT 2021 João Pedro Viana Freitas // https://github.com/J-Pster
+    // GITHUB REPOSITORY https://github.com/Valheim-Brasil/VBrasil_Instalador
+    
     internal class Program
     {
         public static string version = "3.1.0";
