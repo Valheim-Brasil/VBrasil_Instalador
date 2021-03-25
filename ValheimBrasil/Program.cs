@@ -12,7 +12,7 @@ namespace ValheimBrasil
     
     internal class Program
     {
-        public static string version = "3.1.0";
+        public static string version = "3.1.1";
         public static string name = "Valheim Brasil";
         public static string installname = "VBrasil";
         public static string repository = "https://github.com/Valheim-Brasil";
@@ -62,6 +62,12 @@ namespace ValheimBrasil
                             MenuInicial();
                         }
                     }
+                    else
+                    {
+                        Util.SearchingBepInExInstall(Util.util.dirselected);
+                        Util.InstallValheimPlus();
+                        Menus.FinishThanks();
+                    }
                     break;
                 case opcao.Desinstalar:
                     Util.FullClean(Util.util.dirselected);
@@ -84,7 +90,12 @@ namespace ValheimBrasil
                             MenuInicial();
                         }
                     }
-
+                    else
+                    {
+                        Util.FullClean(Util.util.dirselected);
+                        Util.InstallValheimPlus();
+                        Menus.UpdateMessage();
+                    }
                     break;
             }
         }
