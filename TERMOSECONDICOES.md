@@ -1,4 +1,4 @@
-Estes termos e condições gerais de uso e de compra e venda aplicam-se ao "software" localizado nos seguintes links: (https://github.com/Valheim-Brasil/VBrasil_Instalador/) e (https://github.com/Valheim-Brasil/VBrasil/);
+Estes termos e condições gerais de uso e prestação de serviço aplicam-se ao "servidor" e "software" localizado nos seguintes links: (https://github.com/Valheim-Brasil/VBrasil_Instalador/) e (https://github.com/Valheim-Brasil/VBrasil/);
 
 I. Conservação e Uso de Dados Pessoais
 Os dados pessoais do usuário serão conservados por um período não determinado para cumprir os objetivos em razão dos quais eles são processados.
