@@ -19,8 +19,11 @@ namespace ValheimBrasil
             bool resposta = Util.ProsseguirOuNao();
             if(!resposta)
                 Environment.Exit(1);
-            if(resposta)
+            if (resposta)
+            {
                 Console.WriteLine("Você aceitou os termos e condições gerais de uso.");
+                Console.Clear();
+            }
         }
         
         public static void Menu()

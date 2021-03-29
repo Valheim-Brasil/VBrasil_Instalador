@@ -7,7 +7,7 @@
     <list default="true" id="449cfc38-7539-4677-81d6-be126a289c51" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VBrasil_Instalador/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VBrasil_Instalador/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ValheimBrasil/Menus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/Menus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ValheimBrasil/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/VBrasil_Instalador_3.2.0.zip" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/VBrasil_Instalador_3.2.0.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ValheimBrasil/obj/Debug/ValheimBrasil.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/obj/Debug/ValheimBrasil.exe" afterDir="false" />
@@ -82,7 +82,8 @@
       <workItem from="1616694182094" duration="5563000" />
       <workItem from="1616702380953" duration="736000" />
       <workItem from="1616945776449" duration="1582000" />
-      <workItem from="1617042623866" duration="842000" />
+      <workItem from="1617042623866" duration="1126000" />
+      <workItem from="1617046701634" duration="1261000" />
     </task>
     <servers />
   </component>
