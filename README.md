@@ -28,3 +28,6 @@ Discord da Comunidade: https://discord.gg/BjeTBv6pxe
 
 ### Créditos
 * João P. 'Castiel' Freitas - https://github.com/CastBlacKing - Valheim Brasil
+
+## Termos e Condições
+Lcalizado nos seguintes links: (https://github.com/Valheim-Brasil/VBrasil_Instalador/) e (https://github.com/Valheim-Brasil/VBrasil/)
