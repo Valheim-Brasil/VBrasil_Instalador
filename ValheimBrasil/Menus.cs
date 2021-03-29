@@ -8,6 +8,21 @@ namespace ValheimBrasil
 {
     public class Menus
     {
+        public static void TermosECondicoes()
+        {
+            Console.WriteLine("TERMOS E CONDIÇÕES GERAIS DE USO!");
+            Console.WriteLine("Pra fins exclusivamente de proteção dos dados, serviços e acesso do \"servidor\", se comprometendo a não divulgar qualquer informação dos usuários cadastrados.");
+            Console.WriteLine("Localizado nos seguintes links: (https://github.com/Valheim-Brasil/VBrasil_Instalador/blob/main/TERMOSECONDICOES.md) e (https://github.com/Valheim-Brasil/VBrasil/blob/main/TERMOSECONDICOES.md);");
+            Console.WriteLine("Ao prosseguir na instalação você aceita os nossos Termos e Condições. Ao manter os arquivos baixados por este instalador em sua máquina você reafirma que aceitou os termos.");
+            Console.WriteLine("\nVocê aceita estes termos e condições gerais de uso?");
+            Console.Write("[S/N]\n> ");
+            bool resposta = Util.ProsseguirOuNao();
+            if(!resposta)
+                Environment.Exit(1);
+            if(resposta)
+                Console.WriteLine("Você aceitou os termos e condições gerais de uso.");
+        }
+        
         public static void Menu()
         {
             Console.WriteLine($"========== {Program.name} [{Program.version}] ==========\n");

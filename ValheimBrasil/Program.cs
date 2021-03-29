@@ -12,7 +12,7 @@ namespace ValheimBrasil
     
     internal class Program
     {
-        public static string version = "3.1.1";
+        public static string version = "3.2.0";
         public static string name = "Valheim Brasil";
         public static string installname = "VBrasil";
         public static string repository = "https://github.com/Valheim-Brasil";
@@ -103,6 +103,9 @@ namespace ValheimBrasil
         //Função principal
         public static void Main(string[] args)
         {
+            //Termos
+            Menus.TermosECondicoes();
+            
             //Chamando o programa
             //Tetando o padrão
             if(Util.TestDefaultDirectory())
