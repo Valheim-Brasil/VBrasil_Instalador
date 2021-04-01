@@ -8,7 +8,7 @@ namespace ValheimBrasil
 {
     public class Menus
     {
-        public static void TermosECondicoes()
+        /*public static void TermosECondicoes()
         {
             Console.WriteLine("TERMOS E CONDIÇÕES GERAIS DE USO!");
             Console.WriteLine("Pra fins exclusivamente de proteção dos dados, serviços e acesso do \"servidor\", se comprometendo a não divulgar qualquer informação dos usuários cadastrados.");
@@ -24,7 +24,7 @@ namespace ValheimBrasil
                 Console.WriteLine("Você aceitou os termos e condições gerais de uso.");
                 Console.Clear();
             }
-        }
+        }*/
         
         public static void Menu()
         {

@@ -12,7 +12,7 @@ namespace ValheimBrasil
     
     internal class Program
     {
-        public static string version = "3.2.0";
+        public static string version = "3.3.0";
         public static string name = "Valheim Brasil";
         public static string installname = "VBrasil";
         public static string repository = "https://github.com/Valheim-Brasil";
@@ -104,7 +104,7 @@ namespace ValheimBrasil
         public static void Main(string[] args)
         {
             //Termos
-            Menus.TermosECondicoes();
+            //Menus.TermosECondicoes();
             
             //Chamando o programa
             //Tetando o padrão
@@ -123,6 +123,7 @@ namespace ValheimBrasil
 
             Console.Clear();
             Console.WriteLine("AVISO, LEIA COM ATENÇÃO!\nCaso escolha instalar usando este instalador ele irá remover qualquer mod ou config que esteja na pasta.\nPor favor, caso você tenha algo de importante nas pastas do BepInEx, salve-o!");
+            Console.WriteLine("Ao prosseguir nesta etapa, você aceita os termos e condições do instalador.");
             Console.Write("\nDeseja prosseguir? [S/N]\n> ");
             bool resultado = Util.ProsseguirOuNao();
             
