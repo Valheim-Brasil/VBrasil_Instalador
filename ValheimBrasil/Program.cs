@@ -16,8 +16,8 @@ namespace ValheimBrasil
         public static string name = "Valheim Brasil";
         public static string installname = "VBrasil";
         public static string repository = "https://github.com/Valheim-Brasil";
-        public static string creator = "CastBlacKing";
-        public static string creatorgithub = "https://github.com/CastBlacKing";
+        public static string creator = "João Pster";
+        public static string creatorgithub = "https://github.com/J-Pster";
         public static string downloadlink = "https://github.com/Valheim-Brasil/VBrasil/releases/latest/download/ValheimBrasil.zip";
         public static string downloadname = "ValheimBrasil.zip";
         

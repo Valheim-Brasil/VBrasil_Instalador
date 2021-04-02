@@ -62,7 +62,7 @@ namespace ValheimBrasil
             Console.WriteLine($"{Program.name} foi desinstalado com sucesso, adeus :(");
             Console.WriteLine("O instalador fechará em 10 segundos...");
             Console.WriteLine($"GitHub: {Program.creatorgithub}");
-            Console.WriteLine("\nCriado Por: CastBlacKing");
+            Console.WriteLine($"\nCriado Por: {Program.creator}");
             System.Threading.Thread.Sleep(10000);
         }
         
