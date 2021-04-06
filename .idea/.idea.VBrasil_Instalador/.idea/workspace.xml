@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="449cfc38-7539-4677-81d6-be126a289c51" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ValheimBrasil/Menus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/Menus.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ValheimBrasil/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/VBrasil_Instalador_3.3.0.zip" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/VBrasil_Instalador_3.3.0.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/bin/Debug/ValheimBrasil.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ValheimBrasil/obj/Debug/ValheimBrasil.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/obj/Debug/ValheimBrasil.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ValheimBrasil/obj/Debug/ValheimBrasil.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/obj/Debug/ValheimBrasil.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ValheimBrasil/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ValheimBrasil/Util.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +18,9 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/ValheimBrasil/Menus.cs" />
       <option value="$PROJECT_DIR$/ValheimBrasil/Util.cs" />
       <option value="$PROJECT_DIR$/ValheimBrasil/Program.cs" />
-      <option value="$PROJECT_DIR$/ValheimBrasil/Menus.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pxI66HXUIPRphsndkspCnnT8ma" />
@@ -86,6 +81,7 @@
       <workItem from="1617046701634" duration="1261000" />
       <workItem from="1617234977480" duration="1303000" />
       <workItem from="1617384807040" duration="128000" />
+      <workItem from="1617741710968" duration="822000" />
     </task>
     <servers />
   </component>
@@ -108,5 +104,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ValheimBrasil/Util.cs</url>
+          <line>258</line>
+          <properties documentPath="C:\Users\TheWh\Documents\GitHub\VBrasil_Instalador\ValheimBrasil\Util.cs" initialLine="255" containingFunctionPresentation="method 'SearchingBepInExInstall'">
+            <startOffsets>
+              <option value="10158" />
+            </startOffsets>
+            <endOffsets>
+              <option value="10237" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

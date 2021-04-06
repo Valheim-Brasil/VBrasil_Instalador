@@ -12,7 +12,7 @@ namespace ValheimBrasil
     
     internal class Program
     {
-        public static string version = "3.3.0";
+        public static string version = "3.3.1";
         public static string name = "Valheim Brasil";
         public static string installname = "VBrasil";
         public static string repository = "https://github.com/Valheim-Brasil";

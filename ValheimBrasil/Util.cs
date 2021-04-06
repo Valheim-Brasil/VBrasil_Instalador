@@ -57,6 +57,7 @@ namespace ValheimBrasil
                 bool existsbepfolder = System.IO.Directory.Exists($"{dir}/BepInEx");
                 bool existsdorstoplibs = System.IO.Directory.Exists($"{dir}/doorstop_libs");
                 bool existsunstripped = System.IO.Directory.Exists($"{dir}/unstripped_corlib");
+                bool existsstartserversh = System.IO.File.Exists($"{dir}/start_server_bepinex.sh");
                 Console.WriteLine("Removendo Arquivos...");
                 System.Threading.Thread.Sleep(2000);
                 
@@ -65,6 +66,8 @@ namespace ValheimBrasil
                     File.Delete("doorstop_config.ini");
                 if(existswinhttp)
                     File.Delete("winhttp.dll");
+                if(existsstartserversh)
+                    File.Delete("start_server_bepinex.sh");
                 if (existsbepfolder)
                 {
                     string bepinexdir = $"{Directory.GetCurrentDirectory()}/BepInEx";
@@ -254,6 +257,7 @@ namespace ValheimBrasil
             bool existsbepfolder = System.IO.Directory.Exists($"{dir}/BepInEx");
             bool existsdorstoplibs = System.IO.Directory.Exists($"{dir}/doorstop_libs");
             bool existsunstripped = System.IO.Directory.Exists($"{dir}/unstripped_corlib");
+            bool existsstartserversh = System.IO.File.Exists($"{dir}/start_server_bepinex.sh");
             
             if (existsdoorstop || existsbepfolder || existsdorstoplibs || existswinhttp || existsunstripped)
             {
@@ -283,7 +287,9 @@ namespace ValheimBrasil
                         File.Delete("doorstop_config.ini");
                     if(existswinhttp)
                         File.Delete("winhttp.dll");
-                    if (existsbepfolder)
+                    if(existsstartserversh)
+                        File.Delete("start_server_bepinex.sh");
+                    if(existsbepfolder)
                     {
                         string bepinexdir = $"{Directory.GetCurrentDirectory()}/BepInEx";
                         DirectoryInfo directorybep = new DirectoryInfo(bepinexdir);
